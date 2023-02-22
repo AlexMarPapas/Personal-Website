@@ -280,7 +280,8 @@ body {
 
 @media screen and (max-width: 380px) {
   .page-home .text-zone {
-    margin: 0;
+    margin: 15px;
+    padding-left: 10px;
   }
 }
 
@@ -782,7 +783,17 @@ header {
   text-decoration: none;
   cursor: none;
 }
+@media screen and (max-width: 479px) {
+  .rotatingContent1 {
+    left: 50%;
+    right: -25%;
+  }
 
+  .rotatingContent2 {
+    left: 50%;
+    right: -25%;
+  }
+}
 @media screen and (max-width: 479px) {
   .rotatingContent2 {
     padding-bottom: 0px;
