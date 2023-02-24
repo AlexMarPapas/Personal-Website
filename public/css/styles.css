@@ -429,6 +429,13 @@ body {
   margin-left: 1vw;
 }
 
+@media screen and (max-width: 760px) {
+  .wavy::after {
+    font-size: 1.1rem;
+    margin-top: 2vh;
+  }
+}
+
 .wavy span {
   display: inline-block;
   animation: animate 1.5s ease-in-out infinite;
@@ -637,7 +644,7 @@ header {
   opacity: 0;
   display: flex;
   pointer-events: none;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1562px) {
