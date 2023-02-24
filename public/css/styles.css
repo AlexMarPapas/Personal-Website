@@ -719,6 +719,11 @@ header {
   color: white;
   margin-bottom: 50px;
 }
+@media screen and (max-width: 410px) {
+  .brief-description {
+    font-size: 30px;
+  }
+}
 
 .brief-description::before {
   content: "<h2>";
@@ -762,6 +767,288 @@ header {
   position: absolute;
   margin-top: 3vh;
   margin-left: 0.5vw;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110vh;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1562px) {
+  .container {
+    min-height: 100vh;
+    margin: auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 850px) {
+  .container {
+    max-width: 80%; /* set a smaller max-width for the container */
+  }
+}
+@media screen and (max-width: 460px) {
+  .container {
+    min-height: auto;
+    
+  }
+}
+.container__progressbars {
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 270px;
+  width: 25%;
+  min-height: 65%;
+  gap: 4rem;
+}
+@media screen and (max-width: 1562px) {
+  .container__progressbars {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 690px) {
+  .container__progressbars {
+    min-width: 190px;
+    gap: 3rem;
+  }
+}
+@media screen and (max-width: 510px) {
+  .container__progressbars {
+    min-width: 160px;
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 460px) {
+  .container__progressbars {
+    min-width: 115px;
+  }
+}
+
+.progressbar {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 20px 0 20px;
+  transform: rotate(-90deg);
+}
+@media screen and (max-width: 850px) {
+  .progressbar {
+    transform: rotate(-90deg) scale(0.8); /* scale down the progress bars */
+  }
+}
+@media screen and (max-width: 690px) {
+  .progressbar {
+    margin: 0 20px 10px 20px;
+    transform: rotate(-90deg) scale(0.7);
+  }
+}
+@media screen and (max-width: 510px) {
+  .progressbar {
+    margin: 0 20px 10px 10px;
+    transform: rotate(-90deg) scale(0.7);
+  }
+}
+@media screen and (max-width: 460px) {
+  .progressbar {
+    width: 170px;
+    height: 170px;
+    margin: 10px;
+    transform: rotate(-90deg) scale(0.5); /* scale down the progress bars */
+  }
+}
+
+.progressbar__svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 690px) {
+  .progressbar__svg {
+    width: auto;
+  }
+}
+
+.progressbar__svg-circle {
+  width: 100%;
+  height: 100%;
+  stroke-width: 10;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  stroke: white;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+}
+
+.shadow-html {
+  filter: drop-shadow(0 0 5px #ff6633);
+}
+.shadow-css {
+  filter: drop-shadow(0 0 5px #33bbff);
+}
+.shadow-bootstrap {
+  filter: drop-shadow(0 0 5px #ff33ff);
+}
+.shadow-js {
+  filter: drop-shadow(0 0 5px #ffff33);
+}
+.shadow-jquery {
+  filter: drop-shadow(0 0 5px #3377ff);
+}
+.shadow-node {
+  filter: drop-shadow(0 0 5px #55ff33);
+}
+.shadow-express {
+  filter: drop-shadow(0 0 5px #33ffff);
+}
+.shadow-ps {
+  filter: drop-shadow(0 0 5px #ff3333);
+}
+.shadow-figma {
+  filter: drop-shadow(0 0 5px #33ff88);
+}
+
+.circle-html {
+  -webkit-animation: anim_circle-html 4.5s ease-in-out forwards;
+  animation: anim_circle-html 4.5s ease-in-out forwards;
+}
+.circle-css {
+  -webkit-animation: anim_circle-css 4.5s ease-in-out forwards;
+  animation: anim_circle-css 4.5s ease-in-out forwards;
+}
+.circle-bootstrap {
+  -webkit-animation: anim_circle-bootstrap 4.5s ease-in-out forwards;
+  animation: anim_circle-bootstrap 4.5s ease-in-out forwards;
+}
+.circle-js {
+  -webkit-animation: anim_circle-js 4.5s ease-in-out forwards;
+  animation: anim_circle-js 4.5s ease-in-out forwards;
+}
+.circle-jquery {
+  -webkit-animation: anim_circle-jquery 4.5s ease-in-out forwards;
+  animation: anim_circle-jquery 4.5s ease-in-out forwards;
+}
+.circle-node {
+  -webkit-animation: anim_circle-node 4.5s ease-in-out forwards;
+  animation: anim_circle-node 4.5s ease-in-out forwards;
+}
+.circle-express {
+  -webkit-animation: anim_circle-express 4.5s ease-in-out forwards;
+  animation: anim_circle-express 4.5s ease-in-out forwards;
+}
+.circle-ps {
+  -webkit-animation: anim_circle-ps 4.5s ease-in-out forwards;
+  animation: anim_circle-ps 4.5s ease-in-out forwards;
+}
+.circle-figma {
+  -webkit-animation: anim_circle-figma 4.5s ease-in-out forwards;
+  animation: anim_circle-figma 4.5s ease-in-out forwards;
+}
+
+.progressbar__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.25em 0.5em;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+@-webkit-keyframes anim_circle-html {
+  to {
+    stroke-dashoffset: 75;
+  }
+}
+@keyframes anim_circle-html {
+  to {
+    stroke-dashoffset: 75;
+  }
+}
+@-webkit-keyframes anim_circle-css {
+  to {
+    stroke-dashoffset: 98;
+  }
+}
+@keyframes anim_circle-css {
+  to {
+    stroke-dashoffset: 98;
+  }
+}
+@-webkit-keyframes anim_circle-bootstrap {
+  to {
+    stroke-dashoffset: 287.2;
+  }
+}
+@keyframes anim_circle-bootstrap {
+  to {
+    stroke-dashoffset: 287.2;
+  }
+}
+@-webkit-keyframes anim_circle-js {
+  to {
+    stroke-dashoffset: 290;
+  }
+}
+@keyframes anim_circle-js {
+  to {
+    stroke-dashoffset: 290;
+  }
+}
+@-webkit-keyframes anim_circle-jquery {
+  to {
+    stroke-dashoffset: 358;
+  }
+}
+@keyframes anim_circle-jquery {
+  to {
+    stroke-dashoffset: 358;
+  }
+}
+@-webkit-keyframes anim_circle-node {
+  to {
+    stroke-dashoffset: 418;
+  }
+}
+@keyframes anim_circle-node {
+  to {
+    stroke-dashoffset: 418;
+  }
+}
+@-webkit-keyframes anim_circle-express {
+  to {
+    stroke-dashoffset: 432;
+  }
+}
+@keyframes anim_circle-express {
+  to {
+    stroke-dashoffset: 432;
+  }
+}
+@-webkit-keyframes anim_circle-ps {
+  to {
+    stroke-dashoffset: 408;
+  }
+}
+@keyframes anim_circle-ps {
+  to {
+    stroke-dashoffset: 408;
+  }
+}
+@-webkit-keyframes anim_circle-figma {
+  to {
+    stroke-dashoffset: 431.2;
+  }
+}
+@keyframes anim_circle-figma {
+  to {
+    stroke-dashoffset: 431.2;
+  }
 }
 
 /* ----------------------ANIMATED BANNER---------------- */
@@ -818,7 +1105,7 @@ header {
 @media screen and (max-width: 479px) {
   .rotatingContent1 {
     left: 0;
-    right: -35%;
+    right: -25%;
   }
 
   .rotatingContent2 {
@@ -918,280 +1205,4 @@ header {
   pointer-events: auto;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 110vh;
-  padding-bottom: 40px;
-}
 
-@media screen and (max-width: 1562px) {
-  .container {
-    min-height: 100vh;
-    margin: auto;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 850px) {
-  .container {
-    max-width: 80%; /* set a smaller max-width for the container */
-  }
-}
-
-.container__progressbars {
-  display: flex;
-  /* justify-content: space-around; */
-  align-items: center;
-  flex-wrap: wrap;
-  min-width: 270px;
-  width: 25%;
-  min-height: 65%;
-  gap: 4rem;
-}
-@media screen and (max-width: 1562px) {
-  .container__progressbars {
-    justify-content: center;
-  }
-}
-@media screen and (max-width: 690px) {
-  .container__progressbars {
-    min-width: 190px;
-    gap: 3rem;
-  }
-}
-@media screen and (max-width: 510px) {
-  .container__progressbars {
-    min-width: 160px;
-    gap: 1rem;
-  }
-}
-@media screen and (max-width: 460px) {
-  .container__progressbars {
-    min-width: 115px;
-  }
-}
-
-.progressbar {
-  position: relative;
-  width: 170px;
-  height: 170px;
-  margin: 0 20px 0 20px;
-  transform: rotate(-90deg);
-}
-@media screen and (max-width: 850px) {
-  .progressbar {
-    transform: rotate(-90deg) scale(0.8); /* scale down the progress bars */
-  }
-}
-@media screen and (max-width: 690px) {
-  .progressbar {
-    margin: 0 20px 10px 20px;
-    transform: rotate(-90deg) scale(0.7);
-  }
-}
-@media screen and (max-width: 510px) {
-  .progressbar {
-    margin: 0 20px 10px 10px;
-    transform: rotate(-90deg) scale(0.7);
-  }
-}
-@media screen and (max-width: 460px) {
-  .progressbar {
-    width: 100px;
-    height: 170px;
-    margin: 10px;
-    transform: rotate(-90deg) scale(0.5); /* scale down the progress bars */
-  }
-}
-
-.progressbar__svg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-@media screen and (max-width: 690px) {
-  .progressbar__svg {
-    width: auto;
-  }
-}
-
-.progressbar__svg-circle {
-  width: 100%;
-  height: 100%;
-  stroke-width: 10;
-  stroke-dasharray: 440;
-  stroke-dashoffset: 440;
-  stroke: white;
-  stroke-linecap: round;
-  transform: translate(5px, 5px);
-}
-
-.shadow-html {
-  filter: drop-shadow(0 0 5px #ff6633);
-}
-.shadow-css {
-  filter: drop-shadow(0 0 5px #33bbff);
-}
-.shadow-scss {
-  filter: drop-shadow(0 0 5px #ff33ff);
-}
-.shadow-js {
-  filter: drop-shadow(0 0 5px #ffff33);
-}
-.shadow-ts {
-  filter: drop-shadow(0 0 5px #3377ff);
-}
-.shadow-node {
-  filter: drop-shadow(0 0 5px #55ff33);
-}
-.shadow-react {
-  filter: drop-shadow(0 0 5px #33ffff);
-}
-.shadow-angular {
-  filter: drop-shadow(0 0 5px #ff3333);
-}
-.shadow-vue {
-  filter: drop-shadow(0 0 5px #33ff88);
-}
-
-.circle-html {
-  -webkit-animation: anim_circle-html 4.5s ease-in-out forwards;
-  animation: anim_circle-html 4.5s ease-in-out forwards;
-}
-.circle-css {
-  -webkit-animation: anim_circle-css 4.5s ease-in-out forwards;
-  animation: anim_circle-css 4.5s ease-in-out forwards;
-}
-.circle-scss {
-  -webkit-animation: anim_circle-scss 4.5s ease-in-out forwards;
-  animation: anim_circle-scss 4.5s ease-in-out forwards;
-}
-.circle-js {
-  -webkit-animation: anim_circle-js 4.5s ease-in-out forwards;
-  animation: anim_circle-js 4.5s ease-in-out forwards;
-}
-.circle-ts {
-  -webkit-animation: anim_circle-ts 4.5s ease-in-out forwards;
-  animation: anim_circle-ts 4.5s ease-in-out forwards;
-}
-.circle-node {
-  -webkit-animation: anim_circle-node 4.5s ease-in-out forwards;
-  animation: anim_circle-node 4.5s ease-in-out forwards;
-}
-.circle-react {
-  -webkit-animation: anim_circle-react 4.5s ease-in-out forwards;
-  animation: anim_circle-react 4.5s ease-in-out forwards;
-}
-.circle-angular {
-  -webkit-animation: anim_circle-angular 4.5s ease-in-out forwards;
-  animation: anim_circle-angular 4.5s ease-in-out forwards;
-}
-.circle-vue {
-  -webkit-animation: anim_circle-vue 4.5s ease-in-out forwards;
-  animation: anim_circle-vue 4.5s ease-in-out forwards;
-}
-
-.progressbar__text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 0.25em 0.5em;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 0.25em;
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-
-@-webkit-keyframes anim_circle-html {
-  to {
-    stroke-dashoffset: 75;
-  }
-}
-
-@keyframes anim_circle-html {
-  to {
-    stroke-dashoffset: 75;
-  }
-}
-@-webkit-keyframes anim_circle-css { /* js skill*/
-  to {
-    stroke-dashoffset: 290;
-  }
-}
-@keyframes anim_circle-css {
-  to {
-    stroke-dashoffset: 290;
-  }
-}
-@-webkit-keyframes anim_circle-scss { /* epxress skill*/
-  to {
-    stroke-dashoffset: 432;
-  }
-}
-@keyframes anim_circle-scss {
-  to {
-    stroke-dashoffset: 432;
-  }
-}
-@-webkit-keyframes anim_circle-js { /* css skill*/
-  to {
-    stroke-dashoffset: 98; 
-  }
-}
-@keyframes anim_circle-js {
-  to {
-    stroke-dashoffset: 98;
-  }
-}
-@-webkit-keyframes anim_circle-ts {/* jquery skill*/
-  to {
-    stroke-dashoffset: 358;
-  }
-}
-@keyframes anim_circle-ts {
-  to {
-    stroke-dashoffset: 358;
-  }
-}
-@-webkit-keyframes anim_circle-node {/* ps skill*/
-  to {
-    stroke-dashoffset: 408;
-  }
-}
-@keyframes anim_circle-node {
-  to {
-    stroke-dashoffset: 408;
-  }
-}
-@-webkit-keyframes anim_circle-react { /* bootstrap skil*/
-  to {
-    stroke-dashoffset: 287.2;
-  }
-}
-@keyframes anim_circle-react {
-  to {
-    stroke-dashoffset: 287.2;
-  }
-}
-@-webkit-keyframes anim_circle-angular {/* node skill*/
-  to {
-    stroke-dashoffset: 418;
-  }
-}
-@keyframes anim_circle-angular {
-  to {
-    stroke-dashoffset: 418;
-  }
-}
-@-webkit-keyframes anim_circle-vue {
-  to {
-    stroke-dashoffset: 431.2;
-  }
-}
-@keyframes anim_circle-vue {
-  to {
-    stroke-dashoffset: 431.2;
-  }
-}
