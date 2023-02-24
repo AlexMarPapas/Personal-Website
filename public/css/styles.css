@@ -1057,40 +1057,40 @@ header {
 }
 
 .circle-html {
-  -webkit-animation: anim_circle-html 3.5s ease-in-out forwards;
-  animation: anim_circle-html 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-html 4.5s ease-in-out forwards;
+  animation: anim_circle-html 4.5s ease-in-out forwards;
 }
 .circle-css {
-  -webkit-animation: anim_circle-css 3.5s ease-in-out forwards;
-  animation: anim_circle-css 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-css 4.5s ease-in-out forwards;
+  animation: anim_circle-css 4.5s ease-in-out forwards;
 }
 .circle-scss {
-  -webkit-animation: anim_circle-scss 3.5s ease-in-out forwards;
-  animation: anim_circle-scss 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-scss 4.5s ease-in-out forwards;
+  animation: anim_circle-scss 4.5s ease-in-out forwards;
 }
 .circle-js {
-  -webkit-animation: anim_circle-js 3.5s ease-in-out forwards;
-  animation: anim_circle-js 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-js 4.5s ease-in-out forwards;
+  animation: anim_circle-js 4.5s ease-in-out forwards;
 }
 .circle-ts {
-  -webkit-animation: anim_circle-ts 3.5s ease-in-out forwards;
-  animation: anim_circle-ts 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-ts 4.5s ease-in-out forwards;
+  animation: anim_circle-ts 4.5s ease-in-out forwards;
 }
 .circle-node {
-  -webkit-animation: anim_circle-node 3.5s ease-in-out forwards;
-  animation: anim_circle-node 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-node 4.5s ease-in-out forwards;
+  animation: anim_circle-node 4.5s ease-in-out forwards;
 }
 .circle-react {
-  -webkit-animation: anim_circle-react 3.5s ease-in-out forwards;
-  animation: anim_circle-react 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-react 4.5s ease-in-out forwards;
+  animation: anim_circle-react 4.5s ease-in-out forwards;
 }
 .circle-angular {
-  -webkit-animation: anim_circle-angular 3.5s ease-in-out forwards;
-  animation: anim_circle-angular 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-angular 4.5s ease-in-out forwards;
+  animation: anim_circle-angular 4.5s ease-in-out forwards;
 }
 .circle-vue {
-  -webkit-animation: anim_circle-vue 3.5s ease-in-out forwards;
-  animation: anim_circle-vue 3.5s ease-in-out forwards;
+  -webkit-animation: anim_circle-vue 4.5s ease-in-out forwards;
+  animation: anim_circle-vue 4.5s ease-in-out forwards;
 }
 
 .progressbar__text {
