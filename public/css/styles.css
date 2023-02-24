@@ -1,885 +1,1167 @@
 * {
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-}
-
-body {
-  background: black;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.6rem;
-}
-
-#body {
-  overflow: hidden !important;
-}
-
-.preloader {
-  position: fixed;
-  will-change: transform;
-  top: 0;
-  left: -100%;
-  bottom: 0;
-  right: 0;
-  background: black;
-  z-index: 10000;
-  overflow: hidden;
-  opacity: 0;
-  display: none;
-  height: 100%;
-  width: 100%;
-  display: block;
-  transition: transform 0.5s ease-in, left 0.5s ease-out;
-  pointer-events: none !important;
-}
-
-#preloader.active {
-  left: 0; /* Move preloader into full display position */
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.5s ease-out, left 0.5s ease-out;
-  pointer-events: none !important;
-}
-
-#preloader.inactive {
-  left: 100%; /* Move preloader off-screen right */
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.3s ease-out, left 0.3s ease-out;
-  pointer-events: none !important;
-}
-
-/* ----------------ANIMATED TEXT SPHERE---------------------- */
-
-.Sphere {
-  margin: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-@media screen and (max-width: 580px) {
-  .Sphere {
-    padding-bottom: 80px;
-    margin-top: 50px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
   }
-}
-
-.tagcloud {
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: rgba(153, 88, 8, 0.463);
-}
-
-@media screen and (max-width: 580px) {
-  .tagcloud {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-    font-weight: 650;
+  
+  body {
+    background: black;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
   }
-}
-
-.tagcloud--item:hover {
-  color: rgb(174, 111, 60);
-}
-
-/* --------------------------TAGS------------------------ */
-
-.tags {
-  color: #515152;
-  position: absolute;
-  bottom: 0;
-  left: 4vw;
-  font-style: italic;
-  font-size: 1.4rem;
-  font-family: "La Belle Aurore", cursive;
-}
-
-.top-tags {
-  font-size: 1.4rem;
-  bottom: auto;
-  top: 1vh;
-  margin-left: -2vw;
-}
-
-.top-tags::after {
-  content: "<body>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.4rem;
-  position: absolute;
-  margin-left: 1vw;
-}
-
-.bottom-tags {
-  font-size: 1.4rem;
-  bottom: 1vh;
-  top: auto;
-  margin-left: -2vw;
-}
-
-.bottom-tags::before {
-  content: "</body>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.4rem;
-  position: absolute;
-  margin-left: 2vw;
-}
-
-/* --------------------------MAIN MENU------------------------ */
-
-.main-menu {
-  position: absolute;
-  top: 50px;
-  left: 35%;
-  -webkit-transition: all 0.6s ease-in-out;
-  -moz-transition: all 0.6s ease-in-out;
-  transition: all 0.6s ease-in-out;
-  text-decoration: none;
-  z-index: 9999;
-}
-
-@media screen and (max-width: 1210px) {
-  .main-menu {
-    left: 30%;
+  
+  #body {
+    overflow: hidden !important;
   }
-}
-
-.main-menu-list {
-  padding: 0;
-  margin: 0;
-}
-
-.main-menu-list li {
-  display: inline-block;
-  list-style: none;
-}
-
-.main-menu-list li a {
-  position: relative;
-  font-family: "Shadows Into Light";
-  text-decoration: none;
-  color: #69696b;
-  font-size: 1.6svw;
-  margin: 0 20px;
-}
-
-.main-menu-list li a::before {
-  position: absolute;
-  color: #fff;
-  top: 0px;
-  left: 0px;
-  padding: 10px;
-  overflow: hidden;
-  content: attr(alt);
-  transition: all 0.3s;
-  transform: scale(0.8);
-  opacity: 0;
-}
-
-.main-menu-list li a:hover::before {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.main-menu-list a:active,
-.main-menu-list a:visited {
-  text-decoration: none;
-}
-
-@media screen and (max-width: 992px) {
-  .main-menu {
-    display: none;
-  }
-}
-
-/* -------------------------COLLAPSIBLE NAVBAR--------------- */
-
-.navbar {
-  display: none;
-}
-
-@media (max-width: 991px) {
-  .navbar {
-    overflow: hidden;
-    background-color: #333333;
+  
+  .preloader {
     position: fixed;
+    will-change: transform;
     top: 0;
-    left: 0;
+    left: -100%;
+    bottom: 0;
+    right: 0;
+    background: black;
+    z-index: 10000;
+    overflow: hidden;
+    opacity: 0;
+    display: none;
+    height: 100%;
     width: 100%;
-    z-index: 99;
-    opacity: 0.75;
     display: block;
-    padding: 0;
+    transition: transform 0.5s ease-in, left 0.5s ease-out;
+    pointer-events: none !important;
   }
-  .navbar a {
-    color: #f4eeee;
+  
+  #preloader.active {
+    left: 0; /* Move preloader into full display position */
     opacity: 1;
-    margin: 5px;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s ease-out, left 0.5s ease-out;
+    pointer-events: none !important;
   }
-}
-
-.navbar-toggler {
-  position: fixed;
-  top: 0;
-  right: 0;
-  max-width: 50px;
-  max-height: 50px;
-  background-color: rgb(187, 187, 187);
-  border-radius: 5px;
-  display: block;
-  box-shadow: none;
-}
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-
-.outerPage {
-  position: relative;
-}
-
-.section-home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  transition: opacity 3s ease;
-}
-
-.section-page {
-  min-height: 100vh;
-  padding: 2rem 4rem 0 4rem;
-  opacity: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 580px) {
-  .section-page {
-    padding: 0;
+  
+  #preloader.inactive {
+    left: 100%; /* Move preloader off-screen right */
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease-out, left 0.3s ease-out;
+    pointer-events: none !important;
   }
-}
-/* -------------------------------------------SECTION HOME------------------------------------------- */
-
-.page-home .text-zone {
-  position: relative;
-  z-index: 10;
-  width: auto;
-  background: transparent;
-  padding: 20px;
-  margin: 30px;
-  font-size: 30px;
-  opacity: 1;
-  transition: opacity 3s ease;
-}
-
-@media screen and (max-width: 380px) {
-  .page-home .text-zone {
-    margin: 15px;
-    padding-left: 10px;
-  }
-}
-
-.page-home .text-zone::before {
-  content: "<h1>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: -2vh;
-  left: -10px;
-}
-
-.main-title {
-  color: #fff;
-  margin: 0;
-  font-weight: 500;
-  font-size: clamp(2rem, 1rem + 4vw, 4rem);
-  line-height: clamp(2.5rem, 1rem + 5vw, 5rem);
-  position: relative;
-  opacity: 1;
-  margin-bottom: 80px;
-}
-
-/*    TypeWriter Effect      */
-
-.typewriter {
-  overflow: hidden;
-  border-right: 0.15px solid #f8f6f6;
-  white-space: nowrap;
-  animation: typing 2.5s steps(20, end) forwards, blinking 0.8s infinite;
-  transform-origin: 50% 50%;
-  height: 4em;
-  width: 0;
-}
-@keyframes pause-typing {
-  50% {
-    animation-play-state: paused;
-  }
-  to {
-    animation-play-state: paused;
-  }
-}
-
-.paused {
-  animation-play-state: paused;
-}
-@keyframes typing {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 99%;
-  }
-}
-@keyframes blinking {
-  from {
-    border-color: transparent;
-  }
-  to {
-    border-color: #ffffff;
-  }
-}
-
-.main-title::after {
-  content: "</h1>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: relative;
-  top: 1.8vh;
-  left: -8px;
-}
-
-.main-title .title {
-  display: inline-block;
-}
-
-/* -----------ANIMATION ON HOVER (H1 - .MAIN-TITLE)-------------- */
-.main-title .title:hover {
-  color: teal;
-  animation: letters 0.9s;
-}
-@keyframes letters {
-  0% {
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  40% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  50% {
-    transform: scale3d(1.15, 0.85, 1);
-  }
-  65% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  75% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  100% {
-    transform: scale3d(1, 1, 1);
-  }
-}
-
-/* -------ANIMATED TEXT HOP------ */
-
-.wavy {
-  position: relative;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  font-size: 1.7vw;
-  color: white;
-  font-weight: 100;
-  -webkit-box-reflect: below -10px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
-  z-index: 10;
-}
-
-@media screen and (max-width: 400px) {
-  .wavy {
-    font-size: 4vw;
-    margin-top: 80px;
-  }
-}
-
-.wavy::before {
-  content: "<p>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: -4vh;
-  margin-left: -1vw;
-}
-
-.wavy::after {
-  content: "</p>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: 5vh;
-  margin-left: 2vw;
-}
-
-.wavy span {
-  display: inline-block;
-  animation: animate 1.5s ease-in-out infinite;
-  animation-delay: calc(0.07s * var(--i));
-}
-@keyframes animate {
-  0% {
-    transform: translateY(0px);
-  }
-  20% {
-    transform: translateY(-20px);
-  }
-  40%,
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-/* ----------------------------------------SECTION ABOUT----------------------------------------- */
-
-.page-about {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  line-height: 1.5;
-  z-index: 10;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-}
-
-@media screen and (max-width: 1210px) {
-  .page-about {
-    display: block;
-  }
-}
-
-.page-about .text-zone {
-  position: relative;
-  z-index: 10;
-  width: 35%;
-  background: transparent;
-  padding: 70px 0;
-}
-
-@media screen and (max-width: 1210px) {
-  .page-about .text-zone {
-    width: 60%;
+  
+  /* ----------------ANIMATED TEXT SPHERE---------------------- */
+  
+  .Sphere {
     margin: auto;
-    padding: 110px 0 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
-}
-
-@media screen and (max-width: 992px) {
-  .page-about .text-zone {
-    width: 80%;
-    margin: auto;
-    padding: 60px 0 0 0;
-    /* text-align: left; */
+  
+  @media screen and (max-width: 580px) {
+    .Sphere {
+      padding-bottom: 80px;
+      margin-top: 50px;
+    }
   }
-}
-
-@media screen and (max-width: 576px) {
-  .page-about .text-zone {
-    width: 80%;
-    margin: auto;
+  
+  .tagcloud {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(153, 88, 8, 0.463);
   }
-}
-
-@media screen and (max-width: 410px) {
-  .page-about .text-zone {
-    width: 80%;
-    margin: auto;
-    padding: 100px 0 0 0;
-    text-align: left;
+  
+  @media screen and (max-width: 580px) {
+    .tagcloud {
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      font-weight: 650;
+    }
   }
-}
-
-header {
-  position: relative;
-}
-
-.main-title2 {
-  font-family: "Shadows Into Light";
-  font-size: 40px;
-  color: #fff;
-  font-weight: 500;
-  position: relative;
-  margin-bottom: 50px;
-  padding-top: 50px;
-}
-
-@media screen and (max-width: 1210px) {
+  
+  .tagcloud--item:hover {
+    color: rgb(174, 111, 60);
+  }
+  
+  /* --------------------------TAGS------------------------ */
+  
+  .tags {
+    color: #515152;
+    position: absolute;
+    bottom: 0;
+    left: 4vw;
+    font-style: italic;
+    font-size: 1.4rem;
+    font-family: "La Belle Aurore", cursive;
+  }
+  
+  .top-tags {
+    font-size: 1.4rem;
+    bottom: auto;
+    top: 1vh;
+    margin-left: -2vw;
+  }
+  
+  .top-tags::after {
+    content: "<body>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.4rem;
+    position: absolute;
+    margin-left: 1vw;
+  }
+  
+  .bottom-tags {
+    font-size: 1.4rem;
+    bottom: 1vh;
+    top: auto;
+    margin-left: -2vw;
+  }
+  
+  .bottom-tags::before {
+    content: "</body>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.4rem;
+    position: absolute;
+    margin-left: 2vw;
+  }
+  
+  /* --------------------------MAIN MENU------------------------ */
+  
+  .main-menu {
+    position: absolute;
+    top: 50px;
+    left: 35%;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+    text-decoration: none;
+    z-index: 9999;
+  }
+  
+  @media screen and (max-width: 1210px) {
+    .main-menu {
+      left: 30%;
+    }
+  }
+  
+  .main-menu-list {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .main-menu-list li {
+    display: inline-block;
+    list-style: none;
+  }
+  
+  .main-menu-list li a {
+    position: relative;
+    font-family: "Shadows Into Light";
+    text-decoration: none;
+    color: #69696b;
+    font-size: 1.6svw;
+    margin: 0 20px;
+  }
+  
+  .main-menu-list li a::before {
+    position: absolute;
+    color: #fff;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    overflow: hidden;
+    content: attr(alt);
+    transition: all 0.3s;
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  
+  .main-menu-list li a:hover::before {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .main-menu-list a:active,
+  .main-menu-list a:visited {
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .main-menu {
+      display: none;
+    }
+  }
+  
+  /* -------------------------COLLAPSIBLE NAVBAR--------------- */
+  
+  .navbar {
+    display: none;
+  }
+  
+  @media (max-width: 991px) {
+    .navbar {
+      overflow: hidden;
+      background-color: #333333;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99;
+      opacity: 0.75;
+      display: block;
+      padding: 0;
+    }
+    .navbar a {
+      color: #f4eeee;
+      opacity: 1;
+      margin: 5px;
+    }
+  }
+  
+  .navbar-toggler {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 50px;
+    max-height: 50px;
+    background-color: rgb(187, 187, 187);
+    border-radius: 5px;
+    display: block;
+    box-shadow: none;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  
+  .outerPage {
+    position: relative;
+  }
+  
+  .section-home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: opacity 3s ease;
+  }
+  
+  .section-page {
+    min-height: 100vh;
+    padding: 2rem 4rem 0 4rem;
+    opacity: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  @media screen and (max-width: 580px) {
+    .section-page {
+      padding: 0;
+    }
+  }
+  /* -------------------------------------------SECTION HOME------------------------------------------- */
+  
+  .page-home .text-zone {
+    position: relative;
+    z-index: 10;
+    width: auto;
+    background: transparent;
+    padding: 20px;
+    margin: 30px;
+    font-size: 30px;
+    opacity: 1;
+    transition: opacity 3s ease;
+  }
+  
+  @media screen and (max-width: 380px) {
+    .page-home .text-zone {
+      margin: 15px;
+      padding-left: 10px;
+    }
+  }
+  
+  .page-home .text-zone::before {
+    content: "<h1>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: -2vh;
+    left: -10px;
+  }
+  
+  .main-title {
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(2rem, 1rem + 4vw, 4rem);
+    line-height: clamp(2.5rem, 1rem + 5vw, 5rem);
+    position: relative;
+    opacity: 1;
+    margin-bottom: 80px;
+  }
+  
+  /*    TypeWriter Effect      */
+  
+  .typewriter {
+    overflow: hidden;
+    border-right: 0.15px solid #f8f6f6;
+    white-space: nowrap;
+    animation: typing 2.5s steps(20, end) forwards, blinking 0.8s infinite;
+    transform-origin: 50% 50%;
+    height: 4em;
+    width: 0;
+  }
+  @keyframes pause-typing {
+    50% {
+      animation-play-state: paused;
+    }
+    to {
+      animation-play-state: paused;
+    }
+  }
+  
+  .paused {
+    animation-play-state: paused;
+  }
+  @keyframes typing {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 99%;
+    }
+  }
+  @keyframes blinking {
+    from {
+      border-color: transparent;
+    }
+    to {
+      border-color: #ffffff;
+    }
+  }
+  
+  .main-title::after {
+    content: "</h1>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: relative;
+    top: 1.8vh;
+    left: -8px;
+  }
+  
+  .main-title .title {
+    display: inline-block;
+  }
+  
+  /* -----------ANIMATION ON HOVER (H1 - .MAIN-TITLE)-------------- */
+  .main-title .title:hover {
+    color: teal;
+    animation: letters 0.9s;
+  }
+  @keyframes letters {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  /* -------ANIMATED TEXT HOP------ */
+  
+  .wavy {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1.7vw;
+    color: white;
+    font-weight: 100;
+    -webkit-box-reflect: below -10px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+    z-index: 10;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .wavy {
+      font-size: 4vw;
+      margin-top: 80px;
+    }
+  }
+  
+  .wavy::before {
+    content: "<p>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: -4vh;
+    margin-left: -1vw;
+  }
+  
+  .wavy::after {
+    content: "</p>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: 5vh;
+    margin-left: 2vw;
+  }
+  
+  .wavy span {
+    display: inline-block;
+    animation: animate 1.5s ease-in-out infinite;
+    animation-delay: calc(0.07s * var(--i));
+  }
+  @keyframes animate {
+    0% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(-20px);
+    }
+    40%,
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  /* ----------------------------------------SECTION ABOUT----------------------------------------- */
+  
+  .page-about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    line-height: 1.5;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 1210px) {
+    .page-about {
+      display: block;
+    }
+  }
+  
+  .page-about .text-zone {
+    position: relative;
+    z-index: 10;
+    width: 35%;
+    background: transparent;
+    padding: 70px 0;
+  }
+  
+  @media screen and (max-width: 1210px) {
+    .page-about .text-zone {
+      width: 60%;
+      margin: auto;
+      padding: 110px 0 0 0;
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .page-about .text-zone {
+      width: 80%;
+      margin: auto;
+      padding: 60px 0 0 0;
+      /* text-align: left; */
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .page-about .text-zone {
+      width: 80%;
+      margin: auto;
+    }
+  }
+  
+  @media screen and (max-width: 410px) {
+    .page-about .text-zone {
+      width: 80%;
+      margin: auto;
+      padding: 100px 0 0 0;
+      text-align: left;
+    }
+  }
+  
+  header {
+    position: relative;
+  }
+  
   .main-title2 {
-    margin-top: -3rem;
+    font-family: "Shadows Into Light";
+    font-size: 40px;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 50px;
+    padding-top: 50px;
   }
-}
-
-.main-title2::before {
-  content: "<h2>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: -20px;
-  margin-right: -30px;
-}
-
-.main-title2::after {
-  content: "</h2>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: 45px;
-}
-
-@media screen and (max-width: 576px) {
+  
+  /* @media screen and (max-width: 1210px) {
+    .main-title2 {
+      margin-top: -3rem;
+    }
+  } */
+  
+  .main-title2::before {
+    content: "<h2>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: -20px;
+    margin-right: -30px;
+  }
+  
   .main-title2::after {
-    margin-top: 4vh;
+    content: "</h2>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: 45px;
   }
-}
-
-.titleSkills:hover {
-  display: inline-block;
-  color: teal;
-  animation: letters 0.9s;
-}
-
-.introText {
-  display: inline-block;
-  font-size: clamp(1rem, 1.5rem + 1.9vw, 1rem);
-  color: #fff;
-  margin: 0 0 40px 0;
-  font-style: italic;
-  font-size: clamp(1rem, 1.5rem + 1.9vw, 1rem);
-  color: #fff;
-  opacity: 0;
-  animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
-}
-
-@keyframes scale {
-  100% {
-    transform: scale(1);
+  
+  /* @media screen and (max-width: 576px) {
+    .main-title2::after {
+      margin-top: 4vh;
+    }
+  } */
+  
+  .titleSkills:hover {
+    display: inline-block;
+    color: teal;
+    animation: letters 0.9s;
   }
-}
-
-.introText:nth-child(2) {
-  animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-.introText:nth-child(3) {
-  animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-.introText:nth-child(4) {
-  animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-.introText:nth-child(5) {
-  animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-@keyframes fade-in {
-  100% {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-.introText:first-of-type::before {
-  content: "<p>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: -25px;
-  left: -10px;
-}
-
-.introText:last-of-type::after {
-  content: "</p>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: 25px;
-}
-
-@media screen and (max-width: 1570px) {
+  
   .introText {
-    font-size: 16px;
+    display: inline-block;
+    font-size: clamp(1rem, 1.5rem + 1.9vw, 1rem);
+    color: #fff;
+    margin: 0 0 40px 0;
+    font-style: italic;
+    font-size: clamp(1rem, 1.5rem + 1.9vw, 1rem);
+    color: #fff;
+    opacity: 0;
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
   }
-}
-
-@media screen and (max-width: 768px) {
-  .introText {
-    font-size: 14px;
+  
+  @keyframes scale {
+    100% {
+      transform: scale(1);
+    }
   }
-}
-
-/* --------------------------------------------SECTION-SKILLS------------------------------------------------------- */
-
-.page-skills {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-  overflow-x: hidden;
-}
-
-.page-skills .text-zone {
-  position: relative;
-  z-index: 10;
-  width: 40%;
-  background: transparent;
-  padding: 150px 0;
-}
-
-.introText2 {
-  display: inline-block;
-  font-size: clamp(1rem, 1.5rem + 1.9vw, 1rem);
-  color: #fff;
-  margin: 0 0 40px 0;
-  font-style: italic;
-  opacity: 0;
-  animation: scale2 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
-}
-@keyframes scale2 {
-  100% {
-    transform: scale(1);
+  
+  .introText:nth-child(2) {
+    animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
   }
-}
-
-.introText2:nth-child(2) {
-  animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-.introText2:nth-child(3) {
-  animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-.introText2:nth-child(4) {
-  animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-.introText2:nth-child(5) {
-  animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-@keyframes fade-in2 {
-  100% {
-    opacity: 1;
-    filter: blur(0);
+  .introText:nth-child(3) {
+    animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
   }
-}
-.brief-description {
-  font-family: "Shadows Into Light";
-  font-style: italic;
-  font-size: 35px;
-  color: white;
-  margin-bottom: 50px;
-}
+  .introText:nth-child(4) {
+    animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+  .introText:nth-child(5) {
+    animation: fade-in 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+  @keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  
+  .introText:first-of-type::before {
+    content: "<p>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: -25px;
+    left: -10px;
+  }
+  
+  .introText:last-of-type::after {
+    content: "</p>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: 25px;
+  }
+  
+  @media screen and (max-width: 1570px) {
+    .introText {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .introText {
+      font-size: 14px;
+    }
+  }
+  
+  /* --------------------------------------------SECTION-SKILLS------------------------------------------------------- */
+  
+  .page-skills {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: flex;
 
-.brief-description::before {
-  content: "<h2>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: -25px;
-}
-
-.brief-description::after {
-  content: "</h2>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: 35px;
-}
-
-.brief-description span:hover {
-  display: inline-block;
-  color: teal;
-  animation: letters 0.9s;
-}
-
-.page-skills .text-zone .introText2:first-of-type::before {
-  content: "<p>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: -4vh;
-  margin-left: -1vw;
-}
-
-.page-skills .text-zone .introText2:last-of-type::after {
-  content: "</p>";
-  font-family: "La Belle Aurore", cursive;
-  color: #515152;
-  font-size: 1.2rem;
-  position: absolute;
-  margin-top: 3vh;
-  margin-left: 0.5vw;
-}
-
-/* ----------------------ANIMATED BANNER---------------- */
-
-.animatedContainer {
-  position: relative;
-}
-
-.rotatingContent1 {
-  position: fixed;
-  left: 1%;
-  top: 70px;
-  right: auto;
-  bottom: auto;
-  z-index: 2;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  color: #000;
-  text-decoration: none;
-  cursor: none;
-  background-color: rgb(94, 12, 94);
-  box-shadow: none;
-  transform: scale(1.2) rotate(45deg);
-}
-
-@media screen and (max-width: 479px) {
+    pointer-events: none;
+    overflow-x: hidden;
+  }
+  
+  .page-skills .text-zone {
+    position: relative;
+    z-index: 10;
+    width: 40%;
+    background: transparent;
+    padding: 150px 0;
+  }
+  
+  .introText2 {
+    display: inline-block;
+    font-size: clamp(1rem, 1.5rem + 1.9vw, 1rem);
+    color: #fff;
+    margin: 0 0 40px 0;
+    font-style: italic;
+    opacity: 0;
+    animation: scale2 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+  }
+  @keyframes scale2 {
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .introText2:nth-child(2) {
+    animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+  .introText2:nth-child(3) {
+    animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+  .introText2:nth-child(4) {
+    animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+  .introText2:nth-child(5) {
+    animation: fade-in2 4s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+  }
+  @keyframes fade-in2 {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  .brief-description {
+    font-family: "Shadows Into Light";
+    font-style: italic;
+    font-size: 35px;
+    color: white;
+    margin-bottom: 50px;
+  }
+  
+  .brief-description::before {
+    content: "<h2>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: -25px;
+  }
+  
+  .brief-description::after {
+    content: "</h2>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: 35px;
+  }
+  
+  .brief-description span:hover {
+    display: inline-block;
+    color: teal;
+    animation: letters 0.9s;
+  }
+  
+  .page-skills .text-zone .introText2:first-of-type::before {
+    content: "<p>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: -4vh;
+    margin-left: -1vw;
+  }
+  
+  .page-skills .text-zone .introText2:last-of-type::after {
+    content: "</p>";
+    font-family: "La Belle Aurore", cursive;
+    color: #515152;
+    font-size: 1.2rem;
+    position: absolute;
+    margin-top: 3vh;
+    margin-left: 0.5vw;
+  }
+  
+  /* ----------------------ANIMATED BANNER---------------- */
+  
+  .animatedContainer {
+    position: relative;
+  }
+  
   .rotatingContent1 {
-    padding-bottom: 0;
-    padding-top: 0;
+    position: fixed;
+    left: 1%;
+    top: 70px;
+    right: auto;
+    bottom: auto;
+    z-index: 2;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+    cursor: none;
+    background-color: rgb(94, 12, 94);
+    box-shadow: none;
+    transform: scale(1.2) rotate(45deg);
   }
-}
-
-.rotatingContent2 {
-  position: fixed;
-  left: 0%;
-  top: auto;
-  right: auto;
-  bottom: 72px;
-  z-index: 2;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  display: flex;
-  overflow: hidden;
-  color: black;
-  align-items: center;
-  transform: scale(1.2) rotate(-45deg);
-  background-color: rgb(94, 12, 94);
-  text-decoration: none;
-  cursor: none;
-}
-@media screen and (max-width: 479px) {
-  .rotatingContent1 {
-    left: 50%;
-    right: -25%;
+  
+  @media screen and (max-width: 479px) {
+    .rotatingContent1 {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
   }
-
+  
   .rotatingContent2 {
-    left: 50%;
-    right: -25%;
+    position: fixed;
+    left: 0%;
+    top: auto;
+    right: auto;
+    bottom: 72px;
+    z-index: 2;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    overflow: hidden;
+    color: black;
+    align-items: center;
+    transform: scale(1.2) rotate(-45deg);
+    background-color: rgb(94, 12, 94);
+    text-decoration: none;
+    cursor: none;
   }
-}
-@media screen and (max-width: 479px) {
-  .rotatingContent2 {
-    padding-bottom: 0px;
-    padding-top: 0px;
+  @media screen and (max-width: 479px) {
+    .rotatingContent1 {
+      left: 50%;
+      right: -25%;
+    }
+  
+    .rotatingContent2 {
+      left: 50%;
+      right: -25%;
+    }
   }
-}
-
-.rotator {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.animatedText {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 4vw;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-@media screen and (min-width: 993px) {
+  @media screen and (max-width: 479px) {
+    .rotatingContent2 {
+      padding-bottom: 0px;
+      padding-top: 0px;
+    }
+  }
+  
+  .rotator {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .animatedText {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 1.5vw;
+    font-size: 4vw;
     line-height: 1;
     white-space: nowrap;
   }
-}
-
-@media screen and (max-width: 992px) {
-  .animatedText {
-    font-size: 1.5vw;
+  
+  @media screen and (min-width: 993px) {
+    .animatedText {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 1.5vw;
+      line-height: 1;
+      white-space: nowrap;
+    }
   }
-}
-
-@media screen and (max-width: 479px) {
-  .animatedText {
-    font-size: 2.5vw;
+  
+  @media screen and (max-width: 992px) {
+    .animatedText {
+      font-size: 1.5vw;
+    }
   }
-}
-
-.icon {
-  width: 1.5vw;
-  height: 2px;
-  flex: 0 0 auto;
-  margin-right: 15px;
-  margin-left: 15px;
-  background-color: #0e0d0d;
-}
-
-/* .rotator {
-  animation: slide-right 14s linear infinite;
-}
-@keyframes slide-right {
-  from {
-    transform: translateX(100%);
+  
+  @media screen and (max-width: 479px) {
+    .animatedText {
+      font-size: 2.5vw;
+    }
   }
-  to {
-    transform: translateX(-100%);
+  
+  .icon {
+    width: 1.5vw;
+    height: 2px;
+    flex: 0 0 auto;
+    margin-right: 15px;
+    margin-left: 15px;
+    background-color: #0e0d0d;
   }
-} */
+  
+  /* .rotator {
+    animation: slide-right 14s linear infinite;
+  }
+  @keyframes slide-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  } */
+  
+  /* ----CANVA FOR THE MOUSE EFFECT--- */
+  
+  #canvas {
+    position: absolute;
+    display: inline-block;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+  
+  /* ------ACTIVE CLASSES INCORPORATE WITH JQUERY------ */
+  
+  .inactive-page-home {
+    opacity: 0;
+    display: none;
+  }
+  
+  .active-page {
+    position: relative;
+    opacity: 1;
+    transition: opacity 3s ease;
+    pointer-events: auto;
+  }
 
-/* ----CANVA FOR THE MOUSE EFFECT--- */
 
-#canvas {
-  position: absolute;
-  display: inline-block;
-  z-index: -1;
-  left: 0;
-  top: 0;
-  pointer-events: none;
-}
 
-/* ------ACTIVE CLASSES INCORPORATE WITH JQUERY------ */
 
-.inactive-page-home {
-  opacity: 0;
-  display: none;
-}
 
-.active-page {
-  position: relative;
-  opacity: 1;
-  transition: opacity 3s ease;
-  pointer-events: auto;
-}
+  a {
+    text-decoration: none;
+  }
+  
+  .social-media-flex {
+    display: flex;
+  }
+  .social-media-flex-justify-content {
+    justify-content: center;
+  }
+  .social-media-flex-align-items {
+    align-items: center;
+  }
+  
+  .social-media-grid {
+    display: grid;
+  }
+  .social-media-grid-gap {
+    grid-gap: 0.5em;
+  }
+  
+  .main-container-social {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+  }
+  
+  .container-social {
+    grid-template-rows: repeat(2, 1.5em);
+    border-radius: 0.25em;
+    padding: 0.5em;
+    background-color: #262626;
+    box-shadow: 0 0 0.25em #262626;
+  }
+  
+  .social-links {
+    grid-template-columns: repeat(3, 2em);
+    grid-gap: 0.5em;
+    z-index: 100;
+  }
+  
+  .social-link {
+    font-size: 1.5rem;
+    color: #bfbfbf;
+    transition: 0.3s all ease;
+    transition-timing-function: cubic-bezier(0, -0.5, 0, 0.5);
+  }
+  .social-link:hover {
+    color: #f2f2f2;
+    transform: translateY(-0.1em);
+    transition-timing-function: cubic-bezier(0.5, -1.5, 0.5, 1.5);
+  }
+  
+  .made {
+    display: block;
+    color: #f2f2f2;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+  }
+  
+  .container__progressbars {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 270px;
+    width: 100%;
+    min-height: 100%;
+  }
+  
+  .progressbar {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin: 1em;
+    transform: rotate(-90deg);
+  }
+  
+  .progressbar__svg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .progressbar__svg-circle {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 10;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    stroke: white;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+  }
+  
+  .shadow-html {
+    filter: drop-shadow(0 0 5px #ff6633);
+  }
+  .shadow-css {
+    filter: drop-shadow(0 0 5px #33bbff);
+  }
+  .shadow-scss {
+    filter: drop-shadow(0 0 5px #ff33ff);
+  }
+  .shadow-js {
+    filter: drop-shadow(0 0 5px #ffff33);
+  }
+  .shadow-ts {
+    filter: drop-shadow(0 0 5px #3377ff);
+  }
+  .shadow-node {
+    filter: drop-shadow(0 0 5px #55ff33);
+  }
+  .shadow-react {
+    filter: drop-shadow(0 0 5px #33ffff);
+  }
+  .shadow-angular {
+    filter: drop-shadow(0 0 5px #ff3333);
+  }
+  .shadow-vue {
+    filter: drop-shadow(0 0 5px #33ff88);
+  }
+  
+  .circle-html {
+    -webkit-animation: anim_circle-html 1s ease-in-out forwards;
+            animation: anim_circle-html 1s ease-in-out forwards;
+  }
+  .circle-css {
+    -webkit-animation: anim_circle-css 1s ease-in-out forwards;
+            animation: anim_circle-css 1s ease-in-out forwards;
+  }
+  .circle-scss {
+    -webkit-animation: anim_circle-scss 1s ease-in-out forwards;
+            animation: anim_circle-scss 1s ease-in-out forwards;
+  }
+  .circle-js {
+    -webkit-animation: anim_circle-js 1s ease-in-out forwards;
+            animation: anim_circle-js 1s ease-in-out forwards;
+  }
+  .circle-ts {
+    -webkit-animation: anim_circle-ts 1s ease-in-out forwards;
+            animation: anim_circle-ts 1s ease-in-out forwards;
+  }
+  .circle-node {
+    -webkit-animation: anim_circle-node 1s ease-in-out forwards;
+            animation: anim_circle-node 1s ease-in-out forwards;
+  }
+  .circle-react {
+    -webkit-animation: anim_circle-react 1s ease-in-out forwards;
+            animation: anim_circle-react 1s ease-in-out forwards;
+  }
+  .circle-angular {
+    -webkit-animation: anim_circle-angular 1s ease-in-out forwards;
+            animation: anim_circle-angular 1s ease-in-out forwards;
+  }
+  .circle-vue {
+    -webkit-animation: anim_circle-vue 1s ease-in-out forwards;
+            animation: anim_circle-vue 1s ease-in-out forwards;
+  }
+  
+  .progressbar__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0.25em 0.5em;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 0.25em;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  
+  @-webkit-keyframes anim_circle-html {
+    to {
+      stroke-dashoffset: 22;
+    }
+  }
+  
+  @keyframes anim_circle-html {
+    to {
+      stroke-dashoffset: 22;
+    }
+  }
+  @-webkit-keyframes anim_circle-css {
+    to {
+      stroke-dashoffset: 66;
+    }
+  }
+  @keyframes anim_circle-css {
+    to {
+      stroke-dashoffset: 66;
+    }
+  }
+  @-webkit-keyframes anim_circle-scss {
+    to {
+      stroke-dashoffset: 132;
+    }
+  }
+  @keyframes anim_circle-scss {
+    to {
+      stroke-dashoffset: 132;
+    }
+  }
+  @-webkit-keyframes anim_circle-js {
+    to {
+      stroke-dashoffset: 88;
+    }
+  }
+  @keyframes anim_circle-js {
+    to {
+      stroke-dashoffset: 88;
+    }
+  }
+  @-webkit-keyframes anim_circle-ts {
+    to {
+      stroke-dashoffset: 198;
+    }
+  }
+  @keyframes anim_circle-ts {
+    to {
+      stroke-dashoffset: 198;
+    }
+  }
+  @-webkit-keyframes anim_circle-node {
+    to {
+      stroke-dashoffset: 308;
+    }
+  }
+  @keyframes anim_circle-node {
+    to {
+      stroke-dashoffset: 308;
+    }
+  }
+  @-webkit-keyframes anim_circle-react {
+    to {
+      stroke-dashoffset: 387.2;
+    }
+  }
+  @keyframes anim_circle-react {
+    to {
+      stroke-dashoffset: 387.2;
+    }
+  }
+  @-webkit-keyframes anim_circle-angular {
+    to {
+      stroke-dashoffset: 418;
+    }
+  }
+  @keyframes anim_circle-angular {
+    to {
+      stroke-dashoffset: 418;
+    }
+  }
+  @-webkit-keyframes anim_circle-vue {
+    to {
+      stroke-dashoffset: 431.2;
+    }
+  }
+  @keyframes anim_circle-vue {
+    to {
+      stroke-dashoffset: 431.2;
+    }
+  }
