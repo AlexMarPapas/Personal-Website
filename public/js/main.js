@@ -13,12 +13,12 @@ menuLinks.forEach((link) => {
         preloader.classList.remove("inactive");
 
         $(function () {
-          $(".link-home, .link-page").click(function () {
-            $(".typewriter, .introText, .introText2 ").css({
+          $(".link-home, .link-page, ._2").click(function () {
+            $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-scss, .circle-js, .circle-ts, .circle-node, .circle-react, .circle-angular, .circle-vue ").css({
               animation: "null",
             });
             setTimeout(function () {
-              $(".typewriter, .introText, .introText2").css({ animation: "" });
+              $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-scss, .circle-js, .circle-ts, .circle-node, .circle-react, .circle-angular, .circle-vue ").css({ animation: "" });
             }, 1900);
           });
         });
