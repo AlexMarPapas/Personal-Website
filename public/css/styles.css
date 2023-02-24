@@ -281,7 +281,6 @@ body {
 @media screen and (max-width: 380px) {
   .page-home .text-zone {
     margin: 15px;
-    padding-left: 10px;
   }
 }
 
@@ -393,19 +392,37 @@ body {
 
 .wavy {
   position: relative;
-  margin-top: 30px;
   margin-bottom: 50px;
   font-size: 1.7vw;
   color: white;
   font-weight: 100;
-  -webkit-box-reflect: below -10px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
   z-index: 10;
 }
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 1200px) {
+  .wavy {
+    -webkit-box-reflect: below -6px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  }
+}
+@media screen and (max-width: 800px) {
+  .wavy {
+    -webkit-box-reflect: below -6px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  }
+}
+@media screen and (max-width: 700px) {
+  .wavy {
+    font-size: 2.2vw;
+  }
+}
+@media screen and (max-width: 580px) {
+  .wavy {
+    font-size: 3vw;
+  }
+}
+@media screen and (max-width: 410px) {
   .wavy {
     font-size: 4vw;
-    margin-top: 80px;
+    -webkit-box-reflect: below -6px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
   }
 }
 
@@ -415,10 +432,14 @@ body {
   color: #515152;
   font-size: 1.2rem;
   position: absolute;
-  margin-top: -4vh;
-  margin-left: -1vw;
+  margin-top: -3.7vh;
+  margin-left: -25px;
 }
-
+@media screen and (max-width: 760px) {
+  .wavy::before {
+    font-size: 0.9rem;
+  }
+}
 .wavy::after {
   content: "</p>";
   font-family: "La Belle Aurore", cursive;
@@ -431,13 +452,13 @@ body {
 @media screen and (max-width: 1210px) {
   .wavy::after {
     font-size: 1.1rem;
-    margin-top: 3vh;
+    margin-top: 3.6vh;
   }
 }
 @media screen and (max-width: 760px) {
   .wavy::after {
-    font-size: 1.1rem;
-    margin-top: 2vh;
+    font-size: 0.9rem;
+    margin-top: 2.9vh;
   }
 }
 
@@ -805,7 +826,6 @@ header {
 @media screen and (max-width: 460px) {
   .container {
     min-height: auto;
-    
   }
 }
 .container__progressbars {
@@ -1216,5 +1236,3 @@ header {
   transition: opacity 3s ease;
   pointer-events: auto;
 }
-
-
