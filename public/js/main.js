@@ -14,11 +14,11 @@ menuLinks.forEach((link) => {
 
         $(function () {
           $(".link-home, .link-page, ._2").click(function () {
-            $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-scss, .circle-js, .circle-ts, .circle-node, .circle-react, .circle-angular, .circle-vue ").css({
+            $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-bootstrap, .circle-js, .circle-jquery, .circle-node, .circle-express, .circle-ps, .circle-figma ").css({
               animation: "null",
             });
             setTimeout(function () {
-              $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-scss, .circle-js, .circle-ts, .circle-node, .circle-react, .circle-angular, .circle-vue ").css({ animation: "" });
+              $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-bootstrap, .circle-js, .circle-jquery, .circle-node, .circle-express, .circle-ps, .circle-figma ").css({ animation: "" });
             }, 1900);
           });
         });
@@ -121,8 +121,10 @@ const Texts = [
 
 function radiusValue() {
   if (window.innerWidth <= 768) {
-    return 160;
-  } else {
+    return 190;
+  } else if (window.innerHeight <= 724){
+    return 300;
+  }else {
     return 360;
   }
 }
