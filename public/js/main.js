@@ -5,25 +5,39 @@ menuLinks.forEach((link) => {
   link.addEventListener("click", () => {
     const preloader = document.getElementById("preloader");
     preloader.classList.add("active");
+
     setTimeout(() => {
-      preloader.classList.add("inactive");
+      $(".fill").addClass("filling");
 
       setTimeout(() => {
-        preloader.classList.remove("active");
-        preloader.classList.remove("inactive");
+        preloader.classList.add("inactive");
+        $(".fill").removeClass("filling");
 
-        $(function () {
-          $(".link-home, .link-page, ._2").click(function () {
-            $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-bootstrap, .circle-js, .circle-jquery, .circle-node, .circle-express, .circle-ps, .circle-figma ").css({
-              animation: "null",
+        setTimeout(() => {
+          preloader.classList.remove("active");
+          preloader.classList.remove("inactive");
+
+          $(function () {
+            function runAnimation() {
+              $(
+                ".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-bootstrap, .circle-js, .circle-jquery, .circle-node, .circle-express, .circle-ps, .circle-figma, .filling "
+              ).css({
+                animation: "null",
+              });
+              setTimeout(function () {
+                $(
+                  ".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-bootstrap, .circle-js, .circle-jquery, .circle-node, .circle-express, .circle-ps, .circle-figma, .filling "
+                ).css({ animation: "" });
+              }, 100);
+            }
+
+            $(".link-home, .link-page, ._2").click(function () {
+              runAnimation();
             });
-            setTimeout(function () {
-              $(".typewriter, .introText, .introText2, .circle-html, .circle-css, .circle-bootstrap, .circle-js, .circle-jquery, .circle-node, .circle-express, .circle-ps, .circle-figma ").css({ animation: "" });
-            }, 1900);
           });
-        });
-      }, 500);
-    }, 2000);
+        }, 500);
+      }, 1400);
+    }, 500);
   });
 });
 
@@ -73,7 +87,7 @@ function pageOn() {
 }
 
 function pageOff() {
-  $("#section-home").removeClass("inactive-page-home");
+  // $("#section-home").removeClass("inactive-page-home");
   $(".active-page").removeClass("active-page");
   $(".text-zone .main-title").addClass("typewriter");
   linkHome = 0;
@@ -83,19 +97,30 @@ $(".link-page").on("click", function (event) {
   event.preventDefault();
 
   $(".page-home").addClass("inactive-page-home");
+  $(".navbar-collapse").removeClass("show");
+  $(".navbar-toggler").addClass("collapsed");
   linkPage = $(this).attr("href");
   $(".active-page").removeClass("active-page");
-  $(linkPage).addClass("active-page");
+
+  setTimeout(() => {
+    $(linkPage).addClass("active-page");
+  }, 2150);
+
   pageOn();
 });
 
 $(".link-home").on("click", function (event) {
   event.preventDefault();
 
+  $(".navbar-collapse").removeClass("show"); //---REMOVE AND ADD BOOTRSTRAP CLASSES FOR THE COLLAPSIBLE NAV-BAR
+  $(".navbar-toggler").addClass("collapsed");
+
   if (linkHome === 0) {
     // pageOn();
   } else if (linkHome === 1) {
-    $("#section-home").removeClass("inactive-page-home");
+    setTimeout(() => {
+      $("#section-home").removeClass("inactive-page-home");
+    }, 2150);           // ---THE TIME THAT THE HOME-PAGE WILL START TP  DISPLAYAFTER WE CLICK ON HOME
   }
   pageOff();
 
@@ -104,15 +129,41 @@ $(".link-home").on("click", function (event) {
   }, 1600);
 });
 
+$("._4, ._contact").on("click", function (event) {
+  event.preventDefault();
+
+  $(".main-menu").addClass("main-menu-contact");
+  
+});
+
+
+
+$(".link-page, .link-home").not("._4, ._contact").click(function() {
+  $(".main-menu").removeClass("main-menu-contact");
+});
+
+$(document).ready(function(){
+  $('#nav-icon2').click(function(){
+      $(this).toggleClass('open');
+  });
+
+  // Remove 'open' class when a navbar tab is clicked
+  $('.navbar-nav a').click(function() {
+      $('#nav-icon2').removeClass('open');
+  });
+});
+
+
+
 // ---- 3D SPHERE TEXT----
 
 const Texts = [
   "HTML",
   "CSS",
   "JAVASCRIPT",
-  "BOOTSTRAP",
   "NODE.JS",
   "EXPRESS",
+  "BOOTSTRAP",
   "JQUERY",
   "REACT",
   "PHOTOSHOP",
@@ -122,9 +173,9 @@ const Texts = [
 function radiusValue() {
   if (window.innerWidth <= 768) {
     return 190;
-  } else if (window.innerHeight <= 724){
+  } else if (window.innerHeight <= 724) {
     return 300;
-  }else {
+  } else {
     return 360;
   }
 }
@@ -158,7 +209,204 @@ window.addEventListener("load", function () {
   document.head.appendChild(style);
 });
 
-// ----MOUSE TENDRILS TRAIL EFFECT-----
+// --------TILT EFFECT - PORTFOLIO--------
+
+// ---iframe1---
+
+(function () {
+  var container = document.getElementById("container-iframe"),
+    inner = document.getElementById("inner-iframe");
+
+  var mouse = {
+    _x: 0,
+    _y: 0,
+    x: 0,
+    y: 0,
+    updatePosition: function (event) {
+      var e = event || window.event;
+      this.x = e.clientX - this._x;
+      this.y = e.clientY - this._y;
+    },
+    setOrigin: function (e) {
+      this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+      this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+    },
+    show: function () {
+      return "(" + this.x + ", " + this.y + ") ";
+    },
+  };
+
+  mouse.setOrigin(container);
+
+  var counter = 0;
+  var refreshRate = 10;
+  var isTimeToUpdate = function () {
+    return counter++ % refreshRate === 0;
+  };
+
+  var onMouseEnterHandler = function (event) {
+    update(event);
+  };
+
+  var onMouseLeaveHandler = function () {
+    inner.style = "";
+  };
+
+  var onMouseMoveHandler = function (event) {
+    if (isTimeToUpdate()) {
+      update(event);
+    }
+  };
+
+  var update = function (event) {
+    mouse.updatePosition(event);
+    updateTransformStyle(
+      (mouse.y / inner.offsetHeight / 2).toFixed(2),
+      (mouse.x / inner.offsetWidth / 4).toFixed(2)
+    );
+  };
+
+  var updateTransformStyle = function (x, y) {
+    var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+    inner.style.transform = style;
+  };
+
+  container.onmousemove = onMouseMoveHandler;
+  container.onmouseleave = onMouseLeaveHandler;
+  container.onmouseenter = onMouseEnterHandler;
+})();
+
+// -----iframe2-----
+
+(function () {
+  var container2 = document.getElementById("container-iframe2"),
+    inner2 = document.getElementById("inner-iframe2");
+
+  var mouse2 = {
+    _x: 0,
+    _y: 0,
+    x: 0,
+    y: 0,
+    updatePosition: function (event) {
+      var e = event || window.event;
+      this.x = e.clientX - this._x;
+      this.y = e.clientY - this._y;
+    },
+    setOrigin: function (e) {
+      this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+      this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+    },
+    show: function () {
+      return "(" + this.x + ", " + this.y + ") ";
+    },
+  };
+
+  mouse2.setOrigin(container2);
+
+  var counter2 = 0;
+  var refreshRate2 = 10;
+  var isTimeToUpdate2 = function () {
+    return counter2++ % refreshRate2 === 0;
+  };
+
+  var onMouseEnterHandler2 = function (event) {
+    update2(event);
+  };
+
+  var onMouseLeaveHandler2 = function () {
+    inner2.style = "";
+  };
+
+  var onMouseMoveHandler2 = function (event) {
+    if (isTimeToUpdate2()) {
+      update2(event);
+    }
+  };
+
+  var update2 = function (event) {
+    mouse2.updatePosition(event);
+    updateTransformStyle2(
+      (mouse2.y / inner2.offsetHeight / 2 + 0.7).toFixed(2),
+      (mouse2.x / inner2.offsetWidth / 5).toFixed(2)
+    );
+  };
+
+  var updateTransformStyle2 = function (x, y) {
+    var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+    inner2.style.transform = style;
+  };
+
+  container2.onmousemove = onMouseMoveHandler2;
+  container2.onmouseleave = onMouseLeaveHandler2;
+  container2.onmouseenter = onMouseEnterHandler2;
+})();
+
+// -----iframe3-----
+
+(function () {
+  var container3 = document.getElementById("container-iframe3"),
+    inner3 = document.getElementById("inner-iframe3");
+
+  var mouse3 = {
+    _x: 0,
+    _y: 0,
+    x: 0,
+    y: 0,
+    updatePosition: function (event) {
+      var e = event || window.event;
+      this.x = e.clientX - this._x;
+      this.y = e.clientY - this._y;
+    },
+    setOrigin: function (e) {
+      this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+      this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+    },
+    show: function () {
+      return "(" + this.x + ", " + this.y + ") ";
+    },
+  };
+
+  mouse3.setOrigin(container3);
+
+  var counter3 = 0;
+  var refreshRate3 = 10;
+  var isTimeToUpdate3 = function () {
+    return counter3++ % refreshRate3 === 0;
+  };
+
+  var onMouseEnterHandler3 = function (event) {
+    update3(event);
+  };
+
+  var onMouseLeaveHandler3 = function () {
+    inner3.style = "";
+  };
+
+  var onMouseMoveHandler3 = function (event) {
+    if (isTimeToUpdate3()) {
+      update3(event);
+    }
+  };
+
+  var update3 = function (event) {
+    mouse3.updatePosition(event);
+    updateTransformStyle3(
+      (mouse3.y / inner3.offsetHeight / 2 + 1.3).toFixed(2),
+      (mouse3.x / inner3.offsetWidth / 4).toFixed(2)
+    );
+  };
+
+  var updateTransformStyle3 = function (x, y) {
+    var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+    inner3.style.transform = style;
+  };
+
+  container3.onmousemove = onMouseMoveHandler3;
+  container3.onmouseleave = onMouseLeaveHandler3;
+  container3.onmouseenter = onMouseEnterHandler3;
+})();
+
+// -----------------------------MOUSE TENDRILS TRAIL EFFECT---------------------------------
 
 function Loco(remove) {
   if (!remove) {
@@ -177,9 +425,7 @@ function Loco(remove) {
 
     Math.TWO_PI = Math.PI * 2;
 
-    // ========================================================================================
-    // Oscillator
-    // ----------------------------------------------------------------------------------------
+    //----- Oscillator--------
 
     function Oscillator(options) {
       this.init(options || {});
@@ -208,9 +454,7 @@ function Loco(remove) {
       };
     })();
 
-    // ========================================================================================
-    // Tendril
-    // ----------------------------------------------------------------------------------------
+    // ------Tendril---------
 
     function Tendril(options) {
       this.init(options || {});
