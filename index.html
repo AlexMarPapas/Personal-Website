@@ -22,7 +22,7 @@
 
 <body>
 
-    
+
 
     <!-- ---MAIN MENU--- -->
     <div class="main-menu" id="main-menu">
@@ -39,11 +39,17 @@
 
     <!-- ---COLAPSIBLE NAVBAR--- -->
     <nav class="navbar">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        <button class="nav-icon2" id="nav-icon2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
             aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -59,7 +65,7 @@
                     <a class="nav-link link-page" href="#page-portfolio">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link-page" href="#page-contact">Contact</a>
+                    <a class="nav-link link-page _contact" href="#page-contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -149,7 +155,8 @@
 
                 <!-- ---SECTION HOME--- -->
                 <section id="section-home" class="section-home page-home">
-                    
+                    <canvas id="canvas"></canvas>
+
                     <div class="text-zone" id="textZone">
                         <h1 class="main-title" id="main-title">
                             <span class="title alpha">H</span><span class="title alpha2">i</span><span
@@ -210,7 +217,7 @@
                                 <span class="titleSkills">I</span>
                             </h2>
                         </header>
-                        <p class="introText">Welcome to my personal website! My name is Alexander Marios Papas, and I am
+                        <p class="introText">Welcome to my personal website! My name is Alexander Marios Papas and I am
                             a
                             passionate web
                             developer who is just getting started in the industry. My primary focus at the moment is
@@ -220,11 +227,11 @@
                             fascinated by the power
                             of technology to connect people and transform the way we live and work. My commitment to
                             constant learning and growth has led me to acquire a range of skills in web development,
-                            including HTML, CSS, and JavaScript. </p>
+                            including HTML, CSS and JavaScript. </p>
 
                         <p class="introText"> On this website, I will be showcasing my future projects and demonstrating
                             the skills that I
-                            have learned. In general, this website will serve as a platform for me to promote my work
+                            have learned. In general, this website will serve as a platform to promote my work
                             and connect with others in the industry. </p>
 
                         <p class="introText"> Thank you for visiting my website, and I look forward to connecting with
@@ -265,9 +272,9 @@
                             information to individuals and groups through various channels. I am also a good problem
                             solver, able to identify and analyze issues, and devise effective solutions that meet
                             business and user needs. Additionally, I am disciplined, able to work independently, manage
-                            my time effectively, and meet deadlines without compromising on quality.</p>
+                            my time effectively and meet deadlines without quality being compromised.</p>
                     </div>
-                    <div class="container">
+                    <div class="container" id="container">
 
                         <div class="container__progressbars">
 
@@ -282,8 +289,8 @@
 
                             <div class="progressbar">
                                 <svg class="progressbar__svg">
-                                    <circle cx="80" cy="80" r="70"
-                                        class="progressbar__svg-circle circle-js shadow-js"> </circle>
+                                    <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-js shadow-js">
+                                    </circle>
                                 </svg>
                                 <span class="progressbar__text shadow-css">JavaScript</span>
                             </div>
@@ -299,7 +306,8 @@
                         <div class="container__progressbars">
                             <div class="progressbar">
                                 <svg class="progressbar__svg">
-                                    <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-css shadow-css">
+                                    <circle cx="80" cy="80" r="70"
+                                        class="progressbar__svg-circle circle-css shadow-css">
                                     </circle>
                                 </svg>
                                 <span class="progressbar__text shadow-js">CSS</span>
@@ -307,7 +315,8 @@
 
                             <div class="progressbar">
                                 <svg class="progressbar__svg">
-                                    <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-jquery shadow-jquery">
+                                    <circle cx="80" cy="80" r="70"
+                                        class="progressbar__svg-circle circle-jquery shadow-jquery">
                                     </circle>
                                 </svg>
                                 <span class="progressbar__text shadow-ts">JQuery</span>
@@ -315,8 +324,8 @@
 
                             <div class="progressbar">
                                 <svg class="progressbar__svg">
-                                    <circle cx="80" cy="80" r="70"
-                                        class="progressbar__svg-circle circle-ps shadow-ps"> </circle>
+                                    <circle cx="80" cy="80" r="70" class="progressbar__svg-circle circle-ps shadow-ps">
+                                    </circle>
                                 </svg>
                                 <span class="progressbar__text shadow-node">PS</span>
                             </div>
@@ -350,6 +359,105 @@
                 <!-- ---SECTION SKILLS--- -->
 
 
+                <!-- ---SECTION PORTFOLIO--- -->
+                <section id="page-portfolio" class="section-page page-portfolio">
+
+                    <div id="container-iframe" class="container-lg">
+                        <div id="inner-iframe">
+                            <iframe class="iframe1" src="https://lime-crazy-anemone.cyclic.app"
+                                frameborder="0"></iframe>
+                        </div>
+                        <a href="https://lime-crazy-anemone.cyclic.app" target="iframe1">"&nbsp;Click for
+                            Direct&nbsp;"</a>
+                    </div>
+
+                    <div id="container-iframe2" class="container-lg">
+                        <div id="inner-iframe2">
+                            <iframe src="https://ill-blue-starfish-robe.cyclic.app" frameborder="0"></iframe>
+                        </div>
+                        <a href="https://ill-blue-starfish-robe.cyclic.app" target="iframe1">"&nbsp;Click for
+                            Direct&nbsp;"</a>
+                    </div>
+
+                    <div id="container-iframe3" class="container-lg">
+                        <div id="inner-iframe3">
+                            <iframe src="https://mmfs.io" frameborder="0"></iframe>
+                        </div>
+                        <a href="https://mmfs.io" target="iframe1">"&nbsp;Click for Direct&nbsp;"</a>
+                    </div>
+
+                </section>
+                <!-- ---SECTION PORTFOLIO--- -->
+
+                <!-- ---SECTION CONTACT--- -->
+                <section id="page-contact" class="section-page page-contact">
+
+                    <div class="text-zone">
+
+                        <h2 class="contact-title">
+                            <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span>
+                            <span>M</span><span>e</span>
+                        </h2>
+
+                        <p class="introText3">Thank you for considering my services! If you have any questions, comments
+                            or project
+                            proposals, please feel free to contact me using the form below. As a solo freelancer, I am
+                            able to offer flexible and personalized solutions to meet your needs. I look forward to
+                            hearing from you!</p>
+
+
+                        <form action="https://formsubmit.co/alexapapadop@gmail.com" method="POST" autocomplete="off"
+                            id="contact-form" class="form">
+
+                            <div class="form-field">
+                                <label for="user-name "></label>
+                                <input class="form-control required " id="name" placeholder="Name" name="user-name"
+                                    type="text" required>
+                                <span class="underline"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="user-email"></label>
+                                <input class="form-control required" id="email" placeholder="Email" name="user-email"
+                                    type="email" required>
+                                <span class="underline"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="user-subject"></label>
+                                <input class="form-control required" id="subject" placeholder="Subject"
+                                    name="user-subject" type="text" required>
+                                <span class="underline"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="user-msg"></label>
+                                <textarea class="form-control text-msg required" id="message" placeholder="Message"
+                                    name="user_msg" rows="5" required></textarea>
+                                <span class="underline"></span>
+                            </div>
+
+                            <div class="form-field">
+                                <input type="submit" name="email-btn" class="btn btn-send form-send" value="Send!">
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="contact-right">
+                        <div class="google-map">
+                            <div class="gmap-canvas"><iframe id="gmap-canvas"
+                                    src="https://maps.google.com/maps?q=ATHENS&t=k&z=13&ie=UTF8&iwloc=&output=embed"
+                                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                                    href=""></a><br>
+                                <a href="https://www.embedgooglemap.net"></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+
 
 
 
@@ -367,8 +475,16 @@
         </div>
 
     </section>
-    <canvas id="canvas"></canvas>
-    <div id="preloader" class="preloader"></div>
+
+    <div id="preloader" class="preloader">
+
+        <div class="loading-bar">
+            <span>Let Me Think . . . </span>
+            <div class="loading-fill">
+                <div class="fill "></div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
