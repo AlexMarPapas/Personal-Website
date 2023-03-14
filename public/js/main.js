@@ -278,133 +278,133 @@ window.addEventListener("load", function () {
 
 // -----iframe2-----
 
-(function () {
-  var container2 = document.getElementById("container-iframe2"),
-    inner2 = document.getElementById("inner-iframe2");
+// (function () {
+//   var container2 = document.getElementById("container-iframe2"),
+//     inner2 = document.getElementById("inner-iframe2");
 
-  var mouse2 = {
-    _x: 0,
-    _y: 0,
-    x: 0,
-    y: 0,
-    updatePosition: function (event) {
-      var e = event || window.event;
-      this.x = e.clientX - this._x;
-      this.y = e.clientY - this._y;
-    },
-    setOrigin: function (e) {
-      this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
-      this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
-    },
-    show: function () {
-      return "(" + this.x + ", " + this.y + ") ";
-    },
-  };
+//   var mouse2 = {
+//     _x: 0,
+//     _y: 0,
+//     x: 0,
+//     y: 0,
+//     updatePosition: function (event) {
+//       var e = event || window.event;
+//       this.x = e.clientX - this._x;
+//       this.y = e.clientY - this._y;
+//     },
+//     setOrigin: function (e) {
+//       this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+//       this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+//     },
+//     show: function () {
+//       return "(" + this.x + ", " + this.y + ") ";
+//     },
+//   };
 
-  mouse2.setOrigin(container2);
+//   mouse2.setOrigin(container2);
 
-  var counter2 = 0;
-  var refreshRate2 = 10;
-  var isTimeToUpdate2 = function () {
-    return counter2++ % refreshRate2 === 0;
-  };
+//   var counter2 = 0;
+//   var refreshRate2 = 10;
+//   var isTimeToUpdate2 = function () {
+//     return counter2++ % refreshRate2 === 0;
+//   };
 
-  var onMouseEnterHandler2 = function (event) {
-    update2(event);
-  };
+//   var onMouseEnterHandler2 = function (event) {
+//     update2(event);
+//   };
 
-  var onMouseLeaveHandler2 = function () {
-    inner2.style = "";
-  };
+//   var onMouseLeaveHandler2 = function () {
+//     inner2.style = "";
+//   };
 
-  var onMouseMoveHandler2 = function (event) {
-    if (isTimeToUpdate2()) {
-      update2(event);
-    }
-  };
+//   var onMouseMoveHandler2 = function (event) {
+//     if (isTimeToUpdate2()) {
+//       update2(event);
+//     }
+//   };
 
-  var update2 = function (event) {
-    mouse2.updatePosition(event);
-    updateTransformStyle2(
-      (mouse2.y / inner2.offsetHeight / 2 + 0.7).toFixed(2),
-      (mouse2.x / inner2.offsetWidth / 5).toFixed(2)
-    );
-  };
+//   var update2 = function (event) {
+//     mouse2.updatePosition(event);
+//     updateTransformStyle2(
+//       (mouse2.y / inner2.offsetHeight / 2 + 0.7).toFixed(2),
+//       (mouse2.x / inner2.offsetWidth / 5).toFixed(2)
+//     );
+//   };
 
-  var updateTransformStyle2 = function (x, y) {
-    var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
-    inner2.style.transform = style;
-  };
+//   var updateTransformStyle2 = function (x, y) {
+//     var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+//     inner2.style.transform = style;
+//   };
 
-  container2.onmousemove = onMouseMoveHandler2;
-  container2.onmouseleave = onMouseLeaveHandler2;
-  container2.onmouseenter = onMouseEnterHandler2;
-})();
+//   container2.onmousemove = onMouseMoveHandler2;
+//   container2.onmouseleave = onMouseLeaveHandler2;
+//   container2.onmouseenter = onMouseEnterHandler2;
+// })();
 
-// -----iframe3-----
+// // -----iframe3-----
 
-(function () {
-  var container3 = document.getElementById("container-iframe3"),
-    inner3 = document.getElementById("inner-iframe3");
+// (function () {
+//   var container3 = document.getElementById("container-iframe3"),
+//     inner3 = document.getElementById("inner-iframe3");
 
-  var mouse3 = {
-    _x: 0,
-    _y: 0,
-    x: 0,
-    y: 0,
-    updatePosition: function (event) {
-      var e = event || window.event;
-      this.x = e.clientX - this._x;
-      this.y = e.clientY - this._y;
-    },
-    setOrigin: function (e) {
-      this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
-      this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
-    },
-    show: function () {
-      return "(" + this.x + ", " + this.y + ") ";
-    },
-  };
+//   var mouse3 = {
+//     _x: 0,
+//     _y: 0,
+//     x: 0,
+//     y: 0,
+//     updatePosition: function (event) {
+//       var e = event || window.event;
+//       this.x = e.clientX - this._x;
+//       this.y = e.clientY - this._y;
+//     },
+//     setOrigin: function (e) {
+//       this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+//       this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+//     },
+//     show: function () {
+//       return "(" + this.x + ", " + this.y + ") ";
+//     },
+//   };
 
-  mouse3.setOrigin(container3);
+//   mouse3.setOrigin(container3);
 
-  var counter3 = 0;
-  var refreshRate3 = 10;
-  var isTimeToUpdate3 = function () {
-    return counter3++ % refreshRate3 === 0;
-  };
+//   var counter3 = 0;
+//   var refreshRate3 = 10;
+//   var isTimeToUpdate3 = function () {
+//     return counter3++ % refreshRate3 === 0;
+//   };
 
-  var onMouseEnterHandler3 = function (event) {
-    update3(event);
-  };
+//   var onMouseEnterHandler3 = function (event) {
+//     update3(event);
+//   };
 
-  var onMouseLeaveHandler3 = function () {
-    inner3.style = "";
-  };
+//   var onMouseLeaveHandler3 = function () {
+//     inner3.style = "";
+//   };
 
-  var onMouseMoveHandler3 = function (event) {
-    if (isTimeToUpdate3()) {
-      update3(event);
-    }
-  };
+//   var onMouseMoveHandler3 = function (event) {
+//     if (isTimeToUpdate3()) {
+//       update3(event);
+//     }
+//   };
 
-  var update3 = function (event) {
-    mouse3.updatePosition(event);
-    updateTransformStyle3(
-      (mouse3.y / inner3.offsetHeight / 2 + 1.3).toFixed(2),
-      (mouse3.x / inner3.offsetWidth / 4).toFixed(2)
-    );
-  };
+//   var update3 = function (event) {
+//     mouse3.updatePosition(event);
+//     updateTransformStyle3(
+//       (mouse3.y / inner3.offsetHeight / 2 + 1.3).toFixed(2),
+//       (mouse3.x / inner3.offsetWidth / 4).toFixed(2)
+//     );
+//   };
 
-  var updateTransformStyle3 = function (x, y) {
-    var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
-    inner3.style.transform = style;
-  };
+//   var updateTransformStyle3 = function (x, y) {
+//     var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+//     inner3.style.transform = style;
+//   };
 
-  container3.onmousemove = onMouseMoveHandler3;
-  container3.onmouseleave = onMouseLeaveHandler3;
-  container3.onmouseenter = onMouseEnterHandler3;
-})();
+//   container3.onmousemove = onMouseMoveHandler3;
+//   container3.onmouseleave = onMouseLeaveHandler3;
+//   container3.onmouseenter = onMouseEnterHandler3;
+// })();
 
 // -----------------------------MOUSE TENDRILS TRAIL EFFECT---------------------------------
 
